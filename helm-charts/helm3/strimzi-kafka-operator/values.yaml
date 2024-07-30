@@ -34,7 +34,9 @@ tmpDirSizeLimit: 1Mi
 #   - name: JAVA_OPTS
 #     value: "-Xms256m -Xmx256m"
 
-extraEnvs: []
+extraEnvs:
+  - name: STRIMZI_POD_SECURITY_PROVIDER_CLASS
+    value: restricted
 
 tolerations: []
 affinity: {}
@@ -44,7 +46,17 @@ nodeSelector: {}
 priorityClassName: ""
 
 podSecurityContext: {}
-securityContext: {}
+
+securityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+      - ALL
+  runAsNonRoot: true
+  readOnlyRootFilesystem: true
+  seccompProfile:
+    type: RuntimeDefault
+
 rbac:
   create: yes
 serviceAccountCreate: yes
