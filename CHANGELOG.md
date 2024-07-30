@@ -8,6 +8,7 @@
 * Additional OAuth configuration options have been added for 'oauth' authentication on the listener and the client. 
   On the listener `serverBearerTokenLocation` and `userNamePrefix` have been added. 
   On the client `accessTokenLocation`, `clientAssertion`, `clientAssertionLocation`, `clientAssertionType`, and `saslExtensions` have been added.
+* Set restricted security context as default in the Strimzi Helm chart.
 
 ## 0.42.0
 
